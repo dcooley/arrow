@@ -254,14 +254,14 @@ if [ $? -eq 0 ]; then
     # so there is no need to add its location to PKG_DIRS
   fi
   # Check for S3
-  grep -i 'set(ARROW_S3 "ON")' $ARROW_OPTS_CMAKE >/dev/null 2>&1
-  if [ $? -eq 0 ]; then
+  #grep -i 'set(ARROW_S3 "ON")' $ARROW_OPTS_CMAKE >/dev/null 2>&1
+  #if [ $? -eq 0 ]; then
     PKG_CFLAGS="$PKG_CFLAGS -DARROW_R_WITH_S3"
     if [ "$BUNDLED_LIBS" != "" ]; then
       # We're depending on openssl/curl from the system, so they're not in the bundled deps
       BUNDLED_LIBS="$BUNDLED_LIBS -lssl -lcrypto -lcurl"
     fi
-  fi
+  #fi
   # Check for JSON
   grep -i 'set(ARROW_JSON "ON")' $ARROW_OPTS_CMAKE >/dev/null 2>&1
   if [ $? -eq 0 ]; then
